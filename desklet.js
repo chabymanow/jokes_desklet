@@ -36,13 +36,6 @@ MyDesklet.prototype = {
         );
         this.settings.bindProperty(
             Settings.BindingDirection.IN,
-            "showHeader",
-            "showHeader",
-            this._onSettingsChanged,
-            null
-        );
-        this.settings.bindProperty(
-            Settings.BindingDirection.IN,
             "jokeCategory",
             "jokeCategory",
             this._onSettingsChanged,
@@ -135,18 +128,23 @@ MyDesklet.prototype = {
 
         this._session = new Soup.Session();
         this._loadJoke();
-        this._timeout = Mainloop.timeout_add_seconds(60, () => {
+        this._timeout = Mainloop.timeout_add_seconds(this.refreshInterval, () => {
             this._loadJoke();
             return true;
         });
     },
     _onSettingsChanged: function() {
-        if (this.showHeader) {
-            this.metadata["prevent-decorations"] = false;
-            this.setHeader("Joke Desklet"); // <--- ADDED THIS LINE
-        } else {
-            this.setHeader("");
+        // remove previous timer
+        if (this._timeout) {
+            Mainloop.source_remove(this._timeout);
+            this._timeout = null;
         }
+
+        // create new timer
+        this._timeout = Mainloop.timeout_add_seconds(this.refreshInterval, () => {
+            this._loadJoke();
+            return true;
+        });
         this._loadJoke();
     },
     on_desklet_removed: function() {
@@ -220,6 +218,7 @@ MyDesklet.prototype = {
                     let data = JSON.parse(response);
                     if (data.type === "single") {
                         this.setupLabel.set_text(data.joke);
+                        this.punchlineLabel.set_text(``);
                     } else {
                         this.setupLabel.set_text(`${data.setup}`);
                         this.punchlineLabel.set_text(`${data.delivery}`);
