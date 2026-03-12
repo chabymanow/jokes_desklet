@@ -36,7 +36,6 @@ Huge thanks to the creators of these APIs for providing free access.
 ## Installation
 
 Clone the repository:
-
 ```git clone https://github.com/chabymanow/jokes_desklet.git```
 
 Move the desklet folder into your Cinnamon desklets directory: \
@@ -44,5 +43,5 @@ Move the desklet folder into your Cinnamon desklets directory: \
 
 Restart Cinnamon
 
-Then add the desklet from:
+Then add the desklet from: \
 **System Settings → Desklets**
