@@ -41,9 +41,9 @@ Clone the repository:
 git clone https://github.com/chabymanow/jokes_desklet.git
 ```
 Move the desklet folder into your Cinnamon desklets directory:
-```~/.local/share/cinnamon/desklets/```
+```bash ~/.local/share/cinnamon/desklets/```
 
 Restart Cinnamon
 
 Then add the desklet from:
-System Settings → Desklets
+**System Settings → Desklets**
