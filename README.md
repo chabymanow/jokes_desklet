@@ -37,11 +37,10 @@ Huge thanks to the creators of these APIs for providing free access.
 
 Clone the repository:
 
-```bash
-git clone https://github.com/chabymanow/jokes_desklet.git
-```
-Move the desklet folder into your Cinnamon desklets directory:
-```bash ~/.local/share/cinnamon/desklets/```
+```git clone https://github.com/chabymanow/jokes_desklet.git```
+
+Move the desklet folder into your Cinnamon desklets directory: \
+```~/.local/share/cinnamon/desklets/```
 
 Restart Cinnamon
 
