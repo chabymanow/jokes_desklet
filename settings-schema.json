@@ -1,0 +1,39 @@
+{
+  "refreshInterval": {
+    "type": "spinbutton",
+    "default": 60,
+    "min": 5,
+    "max": 3600,
+    "step": 5,
+    "description": "Refresh interval (seconds)"
+  },
+
+  "showHeader": {
+    "type": "checkbox",
+    "default": true,
+    "description": "Show desklet header"
+  },
+  "apiChoice": {
+    "type": "radiogroup",
+    "description": "Select API",
+    "options": {
+      "Joke API": "jokeapi",
+      "Official Jokes": "officialjoke",
+      "Icanhazdadjoke": "icanhazdadjoke"
+    },
+    "default": "jokeapi"
+  },
+  "jokeCategory": {
+    "type": "combobox",
+    "default": "Any",
+    "description": "Joke category",
+    "dependency": "apiChoice=jokeapi",
+    "options": {
+      "Any": "Any",
+      "Programming": "Programming",
+      "Misc": "Misc",
+      "Dark": "Dark",
+      "Pun": "Pun"
+    }
+  }
+}
